@@ -1,0 +1,69 @@
+- Info
+    - A utility-first CSS framework packed with utility classes like flex, text-center and rotate-90 that can be composed to build any design directly in your markup (HTML or JSX)
+    - Utility-first CSS approach: writing tiny classes with one single purpose and then combining them to build entire layouts
+    - In tailwind, these classes are already written for us. So we’re not gonna write any new CSS, but instead use some of tailwind’s hundreds of classes
+
+
+    // for custom to create new CSS
+
+    -> text-[50px];
+
+    // It's easy to use pseduo method
+       <button class="my-2 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus-within:ring-blue-300 active:bg-blue-800">Click me</button>
+
+    // we can use list styling 
+    <ul>
+    <li class="p2 bg-white first:bg-yellow-100 odd:bg-blue-200 even:bg-green-200">Item1</li>
+    <li class="p2 bg-white first:bg-yellow-100 odd:bg-blue-200 even:bg-green-200">Item1</li>
+    <li class="p2 bg-white first:bg-yellow-100 odd:bg-blue-200 even:bg-green-200">Item1</li>
+    <li class="p2 bg-white first:bg-yellow-100 odd:bg-blue-200 even:bg-green-200">Item1</li>
+    <li class="p2 bg-white first:bg-yellow-100 odd:bg-blue-200 even:bg-green-200">Item1</li>
+    <li class="p2 bg-white first:bg-yellow-100 odd:bg-blue-200 even:bg-green-200">Item1</li>
+  </ul>
+
+  // Custom styles
+    -> 2 diff methods
+
+    1st:
+    <p class="text-[12px] text-[#974563] bg-stone-400 p-[16px]  ">Chesnut Color</p>
+
+    2nd: <in index.css where you've imported tailwindcss>
+
+  --color-*: initial;
+  --color-white: #fff;
+  --color-purple: #3f3cbb;
+  --color-midnight: #121063;   // reference: https://tailwindcss.com/docs/colors#using-a-custom-palette
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+
+  // then you can use that normally like we do -> text-tahiti
+
+  // reusability
+
+  1. Break your layouts inot specific components [buttons, inputs]
+  2. Use directives : @layer
+
+        @layer components {
+                            .card {
+                                    @apply m-19 rounded-lg bg-white px-6 py-8 ring-1 shadow-xl ring-slate-900/5 dark:bg-black
+                                }
+                        }
+    now you can put this class anywhere you want!
+
+
+// For Dark mode: put this in index.css => @custom-variant dark (&:where(.dark, .dark *)); v4.0
+
+
+    
+// for creating components -> Shadcn | tailwindUI | headlessUI
+
+
+Key Points:
+Default Setup: In the latest version, after installing Tailwind CSS with Vite, the framework is ready to use immediately without additional configuration files.
+
+Customization Needs: If you wish to customize your Tailwind setup—such as adding custom fonts, colors, or other configurations—you'll need to manually create the tailwind.config.js file. 
+
+This can be done using the command:
+ -> npx tailwindcss init
+ 
+This approach ensures that users who prefer the default settings can start quickly, while those needing customization have the flexibility to configure Tailwind to their specific requirements.
